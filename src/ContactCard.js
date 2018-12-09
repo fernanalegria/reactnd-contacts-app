@@ -1,0 +1,19 @@
+import React, { Component } from "react";
+import ContactDetails from './ContactDetails';
+import ContactAvatar from './ContactAvatar';
+import RemoveButton from './RemoveButton';
+
+class ContactCard extends Component {
+  render() {
+    const {contact} = this.props;
+    return (
+      <li className="contact-list-item">
+        <ContactAvatar url={contact.avatarURL} />
+        <ContactDetails name={contact.name} handle={contact.handle} />
+        <RemoveButton />
+      </li>
+    );
+  }
+}
+
+export default ContactCard;

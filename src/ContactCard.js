@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ContactDetails from './ContactDetails';
 import ContactAvatar from './ContactAvatar';
 import RemoveButton from './RemoveButton';
+import PropTypes from 'prop-types';
 
 class ContactCard extends Component {
   render() {
@@ -15,5 +16,10 @@ class ContactCard extends Component {
     );
   }
 }
+
+ContactCard.propTypes = {
+  contact: PropTypes.object.isRequired,
+  onDeleteContact: PropTypes.func.isRequired
+};
 
 export default ContactCard;

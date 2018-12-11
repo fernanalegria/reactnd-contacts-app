@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class RemoveButton extends Component {
   render() {
@@ -10,5 +11,13 @@ class RemoveButton extends Component {
     );
   }
 }
+
+RemoveButton.propTypes = {
+  id: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  onDeleteContact: PropTypes.func.isRequired
+};
 
 export default RemoveButton;

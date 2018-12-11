@@ -5,12 +5,12 @@ import RemoveButton from './RemoveButton';
 
 class ContactCard extends Component {
   render() {
-    const {contact} = this.props;
+    const {contact, onDeleteContact} = this.props;
     return (
       <li className="contact-list-item">
         <ContactAvatar url={contact.avatarURL} />
         <ContactDetails name={contact.name} handle={contact.handle} />
-        <RemoveButton />
+        <RemoveButton id={contact.id} onDeleteContact={onDeleteContact}/>
       </li>
     );
   }

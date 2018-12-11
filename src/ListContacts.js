@@ -1,12 +1,17 @@
 import React, { Component } from "react";
-import ContactCard from './ContactCard';
+import ContactCard from "./ContactCard";
 
 class ListContacts extends Component {
   render() {
+    const { contacts, onDeleteContact } = this.props;
     return (
       <ol className="contact-list">
-        {this.props.contacts.map(contact => (
-          <ContactCard contact={contact} key={contact.id}/>
+        {contacts.map(contact => (
+          <ContactCard
+            contact={contact}
+            key={contact.id}
+            onDeleteContact={onDeleteContact}
+          />
         ))}
       </ol>
     );

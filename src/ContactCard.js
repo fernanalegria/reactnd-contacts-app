@@ -5,6 +5,19 @@ import RemoveButton from "./RemoveButton";
 import PropTypes from "prop-types";
 
 class ContactCard extends Component {
+  static propTypes = {
+    contact: PropTypes.shape({
+      id: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.number.isRequired
+      ]),
+      name: PropTypes.string.isRequired,
+      handle: PropTypes.string.isRequired,
+      avatarURL: PropTypes.string
+    }).isRequired,
+    onDeleteContact: PropTypes.func.isRequired
+  };
+
   render() {
     const { contact, onDeleteContact } = this.props;
     return (
@@ -16,18 +29,5 @@ class ContactCard extends Component {
     );
   }
 }
-
-ContactCard.propTypes = {
-  contact: PropTypes.shape({
-    id: PropTypes.oneOfType([
-      PropTypes.string.isRequired,
-      PropTypes.number.isRequired
-    ]),
-    name: PropTypes.string.isRequired,
-    handle: PropTypes.string.isRequired,
-    avatarURL: PropTypes.string
-  }).isRequired,
-  onDeleteContact: PropTypes.func.isRequired
-};
 
 export default ContactCard;

@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import noProfile from "./images/noprofile.jpg";
 
 class ContactAvatar extends Component {
+  static propTypes = {
+    url: PropTypes.string
+  };
+
   render() {
     const { url } = this.props;
     const avatar = url ? (
@@ -19,9 +23,5 @@ class ContactAvatar extends Component {
     return avatar;
   }
 }
-
-ContactAvatar.propTypes = {
-  url: PropTypes.string
-};
 
 export default ContactAvatar;

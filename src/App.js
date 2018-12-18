@@ -23,9 +23,11 @@ class App extends Component {
   }
 
   removeContact = id => {
-    this.setState(currentState => ({
-      contacts: currentState.contacts.filter(contact => contact.id !== id)
-    }));
+    ContactsAPI.remove(id).then(removedContact => {
+      this.setState(currentState => ({
+        contacts: currentState.contacts.filter(contact => contact.id !== removedContact.id)
+      }));
+    });
   };
 
   updateQuery = query => {

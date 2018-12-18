@@ -12,7 +12,7 @@ class ContactDetails extends Component {
     return (
       <div className="contact-details">
         <p>{name}</p>
-        <p>{`@${handle}`}</p>
+        <p>{handle}</p>
       </div>
     );
   }

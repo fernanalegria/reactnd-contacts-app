@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ListContacts from "./ListContacts";
+import SearchField from "./SearchField";
+import Pagination from "./Pagination";
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +26,8 @@ class App extends Component {
           handle: "tylermcginnis",
           avatarURL: "http://localhost:5001/tyler.jpg"
         }
-      ]
+      ],
+      query: ""
     };
   }
 
@@ -34,11 +37,40 @@ class App extends Component {
     }));
   };
 
+  updateQuery = query => {
+    this.setState({
+      query: query
+    });
+  };
+
+  clearQuery = () => {
+    this.updateQuery("");
+  };
+
   render() {
+    const { contacts, query } = this.state,
+      filteredContacts =
+        query === ""
+          ? contacts
+          : contacts.filter(
+              contact =>
+                contact.name.toLowerCase().includes(query.toLowerCase()) ||
+                contact.handle.toLowerCase().includes(query.toLowerCase())
+            ),
+      numFilteredContacts = filteredContacts.length,
+      numContacts = contacts.length;
     return (
-      <div>
+      <div className="list-contacts">
+        <SearchField query={query} updateQuery={this.updateQuery} />
+        {numFilteredContacts !== numContacts && (
+          <Pagination
+            filteredContacts={numFilteredContacts}
+            contacts={numContacts}
+            clearQuery={this.clearQuery}
+          />
+        )}
         <ListContacts
-          contacts={this.state.contacts}
+          contacts={filteredContacts}
           onDeleteContact={this.removeContact}
         />
       </div>

@@ -43,6 +43,16 @@ class App extends Component {
     this.updateQuery("");
   };
 
+  createContact = (contact, history) => {
+    ContactsAPI.create(contact).then(contact => {
+      this.setState(currentState => ({
+        contacts: [...currentState.contacts, contact]
+      }), () => {
+        history.push('/');
+      });
+    });
+  };
+
   render() {
     const { contacts, query } = this.state,
       filteredContacts =
@@ -77,7 +87,11 @@ class App extends Component {
             </div>
           )}
         />
-        <Route path="/create" component={CreateContact} />
+        <Route path="/create" render={({history}) => (
+          <CreateContact onCreateContact={contact => {
+            this.createContact(contact, history);
+          }}/>
+        )} />
       </div>
     );
   }

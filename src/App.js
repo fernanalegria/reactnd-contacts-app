@@ -3,7 +3,7 @@ import ListContacts from "./ListContacts";
 import SearchField from "./SearchField";
 import Pagination from "./Pagination";
 import * as ContactsAPI from "./utils/ContactsAPI";
-import CreateContact from "./CreateContact";
+import CreateContact from "./create/CreateContact";
 import { Route } from "react-router-dom";
 
 class App extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ImageInput from "../ImageInput";
+import ImageInput from "../../common/ImageInput";
 import serializeForm from "form-serialize";
 import CreateContactDetails from "./CreateContactDetails";
 

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ListContacts from "./ListContacts";
-import SearchField from "./SearchField";
-import Pagination from "./Pagination";
+import ListContacts from "./pages/home/ListContacts";
+import SearchField from "./pages/home/SearchField";
+import Pagination from "./pages/home/Pagination";
 import * as ContactsAPI from "./utils/ContactsAPI";
-import CreateContact from "./create/CreateContact";
+import CreateContact from "./pages/create/CreateContact";
 import { Route } from "react-router-dom";
 
 class App extends Component {

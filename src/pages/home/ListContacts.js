@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContactCard from "./ContactCard";
+import ContactCard from "./contact/ContactCard";
 import PropTypes from "prop-types";
 
 class ListContacts extends Component {

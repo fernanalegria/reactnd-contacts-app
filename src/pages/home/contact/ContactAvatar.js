@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import noProfile from "./images/noprofile.jpg";
+import noProfile from "../../../images/noprofile.jpg";
 
 class ContactAvatar extends Component {
   static propTypes = {

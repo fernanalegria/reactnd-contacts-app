@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ContactDetails from "./ContactDetails";
 import ContactAvatar from "./ContactAvatar";
-import RemoveButton from "./RemoveButton";
+import RemoveButton from "../../../common/RemoveButton";
 import PropTypes from "prop-types";
 
 class ContactCard extends Component {
